@@ -18,23 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateStopwatch() {
         elapsedTime++;
         stopwatch.innerText = formatTime(elapsedTime);
-        console.log("Stopwatch updated:", formatTime(elapsedTime)); // Debug log
+        console.log("Stopwatch updated:", formatTime(elapsedTime));
     }
 
     startButton.addEventListener("click", () => {
         if (isRunning) {
             clearInterval(interval);
             startButton.innerText = "Start";
-            stopwatch.style.boxShadow = "none"; // Remove box shadow
-            console.log("Stopwatch stopped"); // Debug log
+            stopwatch.style.boxShadow = "none";
+            console.log("Stopwatch stopped");
         } else {
             interval = setInterval(updateStopwatch, 1000);
             startButton.innerText = "Stop";
-            stopwatch.style.boxShadow = "0 0 100px 10px aqua"; // Add box shadow
-            console.log("Stopwatch started"); // Debug log
+            stopwatch.style.boxShadow = "0 0 100px 10px aqua";
+            console.log("Stopwatch started");
         }
         isRunning = !isRunning;
-        console.log("isRunning:", isRunning); // Debug log
+        console.log("isRunning:", isRunning);
     });
 
     resetButton.addEventListener("click", () => {
@@ -43,14 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
         elapsedTime = 0;
         stopwatch.innerText = formatTime(elapsedTime);
         startButton.innerText = "Start";
-        stopwatch.style.boxShadow = "none"; // Remove box shadow
-        body.classList.remove("background-change"); // Remove background change class
-        stopwatch.style.color = ""; // Reset text color
-        stopwatch.style.backgroundColor = ""; // Reset background color
-        console.log("Stopwatch reset"); // Debug log
+        stopwatch.style.boxShadow = "none";
+        body.classList.remove("background-change");
+        stopwatch.style.color = "";
+        stopwatch.style.backgroundColor = "";
+        console.log("Stopwatch reset");
     });
 
-    // Additional event listener for changing background and text color
     startButton.addEventListener("click", () => {
         body.classList.toggle("background-change");
         stopwatch.style.color = "white";
